@@ -33,6 +33,12 @@ type Options = {
    * @optional
    */
   soundEffectUrl?: string;
+
+  /**
+   * Do you want to crop out a specific element from the DOM? Pass it in here.
+   * Note that the console should be closed to get perfect positioning.
+   */
+  element?: HTMLElement;
 };
 
 /**
@@ -44,6 +50,7 @@ export const takeScreenshot = async ({
   quality = 0.7,
   type = "image/jpeg",
   soundEffectUrl,
+  element,
 }: Options = {}) => {
   await onCaptureStart?.();
   return navigator.mediaDevices
@@ -73,7 +80,7 @@ export const takeScreenshot = async ({
       await sleep();
 
       // Paint the video frame on a canvas...
-      const canvas = paintVideoFrameOnCanvas(video);
+      const canvas = paintVideoFrameOnCanvas(video, element);
 
       // Set the data URL in state
       const screenshot = canvas.toDataURL(type, quality);

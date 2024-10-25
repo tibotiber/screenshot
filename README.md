@@ -7,7 +7,7 @@ This tool uses [native browser APIs](https://developer.mozilla.org/en-US/docs/We
 Pick your preference. You can easily learn about this project in the following ways:
 
 - Watch an explainer on [YouTube](https://www.youtube.com/watch?v=uC6RbWanoy4).
-- See it in action on [StackBlitz](https://stackblitz.com/edit/node-b86qqd?file=app/routes/index.tsx). You'll need to open the preview in a new window to get around extra iframe security that StackBlitz needs. 
+- See it in action on [StackBlitz](https://stackblitz.com/edit/node-b86qqd?file=app/routes/index.tsx). You'll need to open the preview in a new window to get around extra iframe security that StackBlitz needs.
 - Read about the details on the [Xata Blog](https://xata.io/blog/introducing-screenshot/).
 
 ## Usage
@@ -47,8 +47,11 @@ if (checkIfBrowserSupported()) {
 | `quality`        | The quality of the final image on a scale of 0 to 1. 0 is lowest quality, 1 is highest.                               | _nope_   | `.7`           |
 | `onCaptureStart` | An `async` function that does stuff when the capture starts. You'll usually want to hide any modals or anything here. | _nope_   |                |
 | `onCaptureEnd`   | An `async` function that does stuff after capture ends. This is usually when you'll want to clean up.                 | _nope_   |                |
-| `type`           | What kind of image do we want? Possible values are `"image/jpeg"`, `"image/png"` and `"image/webp"`.                                  | _nope_   | `"image/jpeg"` |
+| `type`           | What kind of image do we want? Possible values are `"image/jpeg"`, `"image/png"` and `"image/webp"`.                  | _nope_   | `"image/jpeg"` |
 | `soundEffectURL` | Why not play a little camera click sound effect when taking a screenshot?                                             | _nope_   | -              |
+| `element`        | Do you want to crop out a specific element from the DOM? Pass it in here.                                             | _nope_   | -              |
+
+Please note that when passing an `element` to be cropped, the console should be closed to get a perfect positioning.
 
 ## Contributing
 
